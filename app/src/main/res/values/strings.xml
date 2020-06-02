@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">HopIn</string>
+    <string name="button">LETS FIND A PARTNER</string>
+    <string name="text">Welcome to</string>
+    <string name="name">Name</string>
+    <string name="find_a_partner">Find A Partner</string>
+    <string name="confirm">Confirm</string>
+    <string name="label_name">Message</string>
+    <string name="chat">Chat</string>
+    <string name="home">Home</string>
+    <string name="current_requests">Current Requests</string>
+    <string name="message">Message</string>
+    <string name="title_activity_main_screens">MainScreensActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="title_activity_main_screen">MainScreenActivity</string>
+    <string name="tab_text_1">Home</string>
+    <string name="tab_text_2">Chat</string>
+    <string name="login">Login</string>
+    <string name="register">Register</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="email">Email</string>
+    <string name="register_page">Register Page</string>
+    <string name="login_page">Login Page</string>
+    <string name="log_out">Log out</string>
+    <string name="unknown">Unknown</string>
+    <string name="is_seen">Seen</string>
+    <string name="delivered">Delivered</string>
+</resources>

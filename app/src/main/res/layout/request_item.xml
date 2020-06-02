@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/item_layout">
+
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/chat"
+        style="@style/Widget.MaterialComponents.Button"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="9dp"
+        android:layout_marginTop="22dp"
+        android:layout_toEndOf="@+id/name_text_input"
+        android:shadowColor="@android:color/black"
+        android:text="@string/chat"
+        android:textAllCaps="false"
+        android:textColor="@color/design_default_color_on_secondary"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/name_edit_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="3dp"
+        android:text="@string/name"
+        android:textColor="@color/purple"
+        android:textSize="15sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/name_text_input"
+        android:layout_width="250dp"
+        android:layout_height="40dp"
+        android:padding="3dp"
+        android:layout_below="@+id/name_edit_text"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="0dp"
+        android:text="@string/message"
+        android:textColor="#000000"
+        android:textSize="12sp" />
+
+</RelativeLayout>
