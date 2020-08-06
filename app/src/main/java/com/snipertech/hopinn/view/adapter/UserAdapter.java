@@ -6,6 +6,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 import com.snipertech.hopinn.R;
 import com.snipertech.hopinn.model.Requests;
 import com.snipertech.hopinn.model.User;
@@ -13,6 +15,7 @@ import java.util.List;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+import de.hdodenhof.circleimageview.CircleImageView;
 
 public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder> {
     private List<User> listdata;
@@ -39,6 +42,16 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder
     public void onBindViewHolder(@NonNull UserViewHolder holder, int position) {
         User user = listdata.get(position);
         holder.name.setText(user.getUsername());
+        holder.lastSpoken.setText(user.getLastSpoken());
+        Glide.with(mContext)
+                .applyDefaultRequestOptions(
+                        new RequestOptions()
+                                .placeholder(R.mipmap.ic_launcher_round)
+                                .error(R.mipmap.ic_launcher_round)
+                )
+                .load(user.getProfileUri())
+                .centerCrop()
+                .into(holder.profileImage);
     }
 
     @Override
@@ -64,9 +77,14 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.UserViewHolder
 
     static class UserViewHolder extends RecyclerView.ViewHolder {
         private TextView name;
+        private TextView lastSpoken;
+        private CircleImageView profileImage;
         UserViewHolder(View view, final OnUserClickListener listener) {
             super(view);
             name = itemView.findViewById(R.id.user_name);
+            lastSpoken = itemView.findViewById(R.id.last_spoken);
+            profileImage = itemView.findViewById(R.id.profile_pic);
+
 
             view.setOnClickListener(new View.OnClickListener() {
                 @Override

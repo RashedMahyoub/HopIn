@@ -7,11 +7,28 @@
     android:padding="10dp"
     tools:context=".view.ui.HomeFragment">
 
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/location"
+        style="@style/Widget.MaterialComponents.Button"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@+id/current_req"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="10dp"
+        android:backgroundTint="@android:color/white"
+        android:text="@string/press_to_choose_the_city"
+        android:textAllCaps="false"
+        android:textColor="@color/design_default_color_on_secondary"
+        app:cornerRadius="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
     <TextView
         android:id="@+id/current_req"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
         android:fontFamily="@font/allerta"
@@ -19,41 +36,45 @@
         android:textColor="@android:color/black"
         android:textSize="20sp" />
 
-    <TextView
-        android:id="@+id/profile"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="17dp"
-        android:layout_marginTop="10dp"
-        android:textAlignment="center"
-        android:layout_marginEnd="12dp"
-        android:layout_toEndOf="@+id/current_req"
-        android:fontFamily="@font/comfortaa"
-        android:textColor="@android:color/black"
-        android:textSize="18sp" />
-
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:id="@+id/refresh_requests"
         android:layout_width="match_parent"
-        android:layout_height="600dp"
-        android:layout_marginTop="60dp"
-        android:layout_marginBottom="16dp"
+        android:layout_height="0dp"
+        android:layout_below="@+id/location"
         android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true">
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="10dp"
+        android:paddingTop="10dp">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerview"
             android:layout_width="match_parent"
-            android:padding="10dp"
             android:layout_height="600dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentEnd="true"
             android:layout_marginTop="60dp"
             android:layout_marginBottom="16dp"
-            app:layout_constraintVertical_bias="1.0" />
+            android:layoutAnimation="@anim/layout_animation"
+            app:layout_constraintVertical_bias="1.0"
+            tools:listitem="@layout/request_item" />
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
+    <View
+        android:id="@+id/no_items"
+        android:layout_width="200dp"
+        android:layout_height="250dp"
+        android:visibility="gone"
+        android:layout_centerInParent="true"
+        android:background="@drawable/ic_baseline_list_alt_24"/>
 
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/no_items_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/no_items"
+        android:text="@string/no_requests_are_available_in_this_area"
+        android:textColor="@color/design_default_color_on_secondary" />
 </RelativeLayout>

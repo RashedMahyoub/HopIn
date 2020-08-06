@@ -17,6 +17,13 @@
             app:popExitAnim="@anim/slide_out_right"
             app:enterAnim="@anim/slide_in_right"
             app:exitAnim="@anim/slide_out_left"/>
+        <action
+            android:id="@+id/action_loginFragment_to_changePasswordFragment"
+            app:destination="@id/changePasswordFragment"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"/>
     </fragment>
     <fragment
         android:id="@+id/registerFragment"
@@ -31,4 +38,9 @@
             app:enterAnim="@anim/slide_in_right"
             app:exitAnim="@anim/slide_out_left"/>
     </fragment>
+    <fragment
+        android:id="@+id/changePasswordFragment"
+        android:name="com.snipertech.hopinn.view.ui.ChangePasswordFragment"
+        android:label="fragment_change_password"
+        tools:layout="@layout/fragment_change_password" />
 </navigation>

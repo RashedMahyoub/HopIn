@@ -11,15 +11,16 @@ import com.snipertech.hopinn.model.User;
 import com.snipertech.hopinn.view.adapter.UserAdapter;
 import com.snipertech.hopinn.viewModel.ChatFragmentViewModel;
 
+import java.util.Objects;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
+import dagger.hilt.android.AndroidEntryPoint;
 
-
+@AndroidEntryPoint
 public class ChatFragment extends Fragment {
 
     private ChatFragmentBinding chatFragmentBinding;
@@ -36,20 +37,23 @@ public class ChatFragment extends Fragment {
         chatFragmentViewModel = new ViewModelProvider(this).get(ChatFragmentViewModel.class);
         initRecyclerView();
         chatFragmentViewModel.init();
+        registerObservers();
+        updateToken();
+        return view;
+    }
 
+    //Register observers for changes
+    private void registerObservers(){
         chatFragmentViewModel.getUsers().observe(getViewLifecycleOwner(), users -> {
             userAdapter = new UserAdapter(requireContext(), users);
             chatFragmentBinding.usersList.setAdapter(userAdapter);
 
-            userAdapter.setOnUserClickListener(new UserAdapter.OnUserClickListener() {
-                @Override
-                public void onUserClick(int position) {
-                    User user = userAdapter.getUserAt(position);
-                    String id = user.getId();
-                    Intent intent = new Intent(requireActivity(), ChatRoomActivity.class);
-                    intent.putExtra(USER_ID, id);
-                    startActivity(intent);
-                }
+            userAdapter.setOnUserClickListener(position -> {
+                User user = userAdapter.getUserAt(position);
+                String id = user.getId();
+                Intent intent = new Intent(requireActivity(), ChatRoomActivity.class);
+                intent.putExtra(USER_ID, id);
+                startActivity(intent);
             });
 
             //refresh chat
@@ -59,9 +63,6 @@ public class ChatFragment extends Fragment {
                 chatFragmentBinding.refreshChat.setRefreshing(false);
             });
         });
-
-        updateToken();
-        return view;
     }
 
     private void initRecyclerView(){
@@ -77,7 +78,7 @@ public class ChatFragment extends Fragment {
         FirebaseInstanceId.getInstance().getInstanceId().addOnCompleteListener(
                 task -> {
                     if(task.isSuccessful()){
-                        String mToken = task.getResult().getToken();
+                        String mToken = Objects.requireNonNull(task.getResult()).getToken();
                         chatFragmentViewModel.updateToken(mToken);
                     }
                 });

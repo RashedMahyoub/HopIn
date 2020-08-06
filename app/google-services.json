@@ -1,42 +1,42 @@
 {
   "project_info": {
-    "project_number": "534928027494",
-    "firebase_url": "https://hopin-35a12.firebaseio.com",
-    "project_id": "hopin-35a12",
-    "storage_bucket": "hopin-35a12.appspot.com"
+    "project_number": "",
+    "firebase_url": "",
+    "project_id": "",
+    "storage_bucket": ""
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:534928027494:android:a11f4ea87a0374c4bb22a7",
+        "mobilesdk_app_id": "",
         "android_client_info": {
           "package_name": "com.snipertech.hopinn"
         }
       },
       "oauth_client": [
         {
-          "client_id": "534928027494-fjjqpgnhkt4apc7nsrn3tik4j08rc78v.apps.googleusercontent.com",
+          "client_id": "",
           "client_type": 1,
           "android_info": {
             "package_name": "com.snipertech.hopinn",
-            "certificate_hash": "1018a40e71838630132348263ffe84c337909595"
+            "certificate_hash": ""
           }
         },
         {
-          "client_id": "534928027494-c21uo5frbk94sal9lrsd43cm32hreumj.apps.googleusercontent.com",
+          "client_id": "",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyAlQe-2xRA-yhvkGfTvBMIpdy2n0SYkYvA"
+          "current_key": ""
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "534928027494-c21uo5frbk94sal9lrsd43cm32hreumj.apps.googleusercontent.com",
+              "client_id": "",
               "client_type": 3
             }
           ]

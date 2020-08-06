@@ -5,12 +5,30 @@ public class Message {
     private String message;
     private String receiver;
     private String isSeen;
+    private String timeSent;
 
-    public Message(String message, String receiver, String sender, String isSeen) {
+    public String getTimeSent() {
+        return timeSent;
+    }
+
+    public void setTimeSent(String timeSent) {
+        this.timeSent = timeSent;
+    }
+
+    public Message(String sender, String message, String receiver, String isSeen, String timeSent) {
         this.sender = sender;
         this.message = message;
         this.receiver = receiver;
         this.isSeen = isSeen;
+        this.timeSent = timeSent;
+    }
+
+    public String getReceiver() {
+        return receiver;
+    }
+
+    public void setReceiver(String receiver) {
+        this.receiver = receiver;
     }
 
     public String getIsSeen() {
@@ -38,13 +56,5 @@ public class Message {
 
     public void setMessage(String message) {
         this.message = message;
-    }
-
-    public String getReceiver() {
-        return receiver;
-    }
-
-    public void setReceiver(String receiver) {
-        this.receiver = receiver;
     }
 }

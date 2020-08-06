@@ -9,23 +9,26 @@
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/appBar"
+        android:background="@drawable/colorful_background"
+        android:paddingTop="30dp"
         android:theme="@style/AppTheme.AppBarOverlay">
 
         <com.google.android.material.appbar.MaterialToolbar
-            android:layout_width="match_parent"
             android:id="@+id/toolbar"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            app:menu="@menu/top_menu"
+            android:theme="@style/CustomTheme"
             app:title="@string/app_name"
-            app:menu="@menu/top_menu" />
+            app:titleTextAppearance="@style/textStyle" />
 
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/tabs"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:tabTextColor="@color/design_default_color_background"
+            android:background="@drawable/colorful_background"
             app:tabIndicatorColor="@color/design_default_color_background"
-            android:background="#FFCC22" />
+            app:tabTextColor="@color/design_default_color_background" />
     </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.viewpager.widget.ViewPager
@@ -39,9 +42,24 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
-        android:backgroundTint="@color/appBar"
-        app:rippleColor="@color/cardview_light_background"
         android:layout_margin="@dimen/fab_margin"
-        app:srcCompat="@drawable/ic_create_black_24dp"
-        tools:ignore="PrivateResource" />
+        android:background="@drawable/colorful_background"
+        app:tint="@color/design_default_color_on_primary"
+        app:rippleColor="@color/design_default_color_on_primary"
+        app:srcCompat="@drawable/ic_baseline_edit_24" />
+
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/adView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        app:adSize="BANNER"
+        app:adUnitId="ca-app-pub-4472729188791792/6430266771"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+    </com.google.android.gms.ads.AdView>
+
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">HopIn</string>
-    <string name="button">LETS FIND A PARTNER</string>
     <string name="text">Welcome to</string>
     <string name="name">Name</string>
     <string name="find_a_partner">Find A Partner</string>
@@ -10,11 +9,11 @@
     <string name="home">Home</string>
     <string name="current_requests">Current Requests</string>
     <string name="message">Message</string>
-    <string name="title_activity_main_screens">MainScreensActivity</string>
+    <string name="title_activity_main_screens" translatable="false">MainScreensActivity</string>
     <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
+    <string name="title_dashboard" translatable="false">Dashboard</string>
     <string name="title_notifications">Notifications</string>
-    <string name="title_activity_main_screen">MainScreenActivity</string>
+    <string name="title_activity_main_screen" translatable="false">MainScreenActivity</string>
     <string name="tab_text_1">Home</string>
     <string name="tab_text_2">Chat</string>
     <string name="login">Login</string>
@@ -28,4 +27,41 @@
     <string name="unknown">Unknown</string>
     <string name="is_seen">Seen</string>
     <string name="delivered">Delivered</string>
+    <string name="forgot_password">- Forgot password -</string>
+    <string name="profile">Profile</string>
+    <string name="change_name">Change name</string>
+    <string name="locate_me">Locate me</string>
+    <string name="press_to_choose_the_city">press to choose the city</string>
+    <string name="enter_message">Enter a message please </string>
+    <string name="choose_city">Choose a city please </string>
+    <string name="choose_image">Choose</string>
+    <string name="error">Sorry, an error has occurred </string>
+    <string name="request_successfully_added">Successfully added</string>
+    <string name="no_location">No location was picked</string>
+    <string name="update_user_information">Update user information</string>
+    <string name="image_not_picked">No image was picked</string>
+    <string name="profile_updated_message">Your profile was updated successfully</string>
+    <string name="fill_in_all_fields">Please fill in all the fields</string>
+    <string name="email_not_verified">Your Email is not verified, please verify!</string>
+    <string name="user_not_found">No user was found with that email or password!</string>
+    <string name="password_too_short">Password must be more than 6 letters or numbers</string>
+    <string name="verification_sent">A verification email is sent</string>
+    <string name="register_error">You cannot register with this email or password</string>
+    <string name="no_requests_are_available_in_this_area">No requests are available in this area</string>
+    <string name="type_a_message">Type a message</string>
+    <string name="you">You</string>
+    <string name="rest_password">Reset Password</string>
+    <string name="check">Check</string>
+    <string name="reset_pass_success">An email was sent to your account for resetting your password</string>
+    <string name="settings">Settings</string>
+    <string name="english">English</string>
+    <string name="arabic">Arabic</string>
+    <string name="email_not_right">Not a valid email format</string>
+
+    <string-array name="language">
+        <item>Choose a language</item>
+        <item>English</item>
+        <item>Arabic</item>
+    </string-array>
+
 </resources>

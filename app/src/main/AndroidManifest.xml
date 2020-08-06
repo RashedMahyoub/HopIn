@@ -4,9 +4,11 @@
     package="com.snipertech.hopinn">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
 
     <application
-        android:allowBackup="false"
+        android:name=".view.ui.BaseApplication"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
@@ -14,22 +16,55 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:targetApi="m">
+
+        <activity
+            android:name=".view.ui.SettingsActivity"
+            android:theme="@style/CustomTheme"
+            android:parentActivityName=".view.ui.MainScreenActivity"/>
+        <activity android:name=".view.ui.GoogleMapActivity" />
+
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="KEY_HERE"/>
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/google_maps_key" />
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+
+        <activity
+            android:name=".view.ui.ProfileActivity"
+            android:parentActivityName=".view.ui.MainScreenActivity"
+            android:theme="@style/CustomTheme" />
         <activity
             android:name=".view.ui.ChatRoomActivity"
-            android:parentActivityName=".view.ui.MainScreenActivity" />
+            android:parentActivityName=".view.ui.MainScreenActivity"
+            android:theme="@style/AppTheme"
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".view.ui.MainScreenActivity"
-            android:label="@string/title_activity_main_screen" />
+            android:label="@string/title_activity_main_screen"
+            android:theme="@style/CustomTheme" />
         <activity
             android:name=".view.ui.AddRequestActivity"
-            android:parentActivityName=".view.ui.MainScreenActivity" />
-        <activity android:name=".view.ui.MainActivity">
+            android:parentActivityName=".view.ui.MainScreenActivity"
+            android:theme="@style/CustomTheme" />
+
+        <activity android:name=".view.ui.MainActivity"
+            android:theme="@style/CustomTheme"/>
+
+        <activity
+            android:name=".view.ui.SplashScreenActivity"
+            android:theme="@style/CustomTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <service
             android:name=".notifications.MyFirebaseMessaging"
             android:enabled="true"

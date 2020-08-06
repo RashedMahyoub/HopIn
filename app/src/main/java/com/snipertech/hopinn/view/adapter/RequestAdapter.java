@@ -1,6 +1,7 @@
 package com.snipertech.hopinn.view.adapter;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,6 +9,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.google.android.material.button.MaterialButton;
+import com.google.firebase.auth.FirebaseAuth;
 import com.snipertech.hopinn.model.Requests;
 import com.snipertech.hopinn.R;
 
@@ -43,40 +45,39 @@ public class RequestAdapter extends RecyclerView.Adapter<RequestAdapter.RequestV
         Requests request = requestList.get(position);
         holder.nameText.setText(request.getName());
         holder.messageText.setText(request.getMessage());
+        holder.requestTime.setText(request.getRequestTime());
+        if(request.getUserId().equals(FirebaseAuth.getInstance().getCurrentUser().getUid())){
+            holder.nameText.setText(mContext.getResources().getString(R.string.you));
+        }
     }
 
 
     static class RequestViewHolder extends RecyclerView.ViewHolder {
         private TextView nameText;
         private TextView messageText;
-        private MaterialButton chat;
+        private TextView requestTime;
 
         RequestViewHolder(@NonNull View itemView, final OnItemClickListener listener) {
             super(itemView);
             nameText = itemView.findViewById(R.id.name_edit_text);
             messageText = itemView.findViewById(R.id.name_text_input);
-            chat = itemView.findViewById(R.id.chat);
+            requestTime = itemView.findViewById(R.id.request_time);
+            MaterialButton chat = itemView.findViewById(R.id.chat);
 
-            itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    if (listener != null) {
-                        int position = getAdapterPosition();
-                        if (position != RecyclerView.NO_POSITION) {
-                            listener.onItemClick(position);
-                        }
+            itemView.setOnClickListener(v -> {
+                if (listener != null) {
+                    int position = getAdapterPosition();
+                    if (position != RecyclerView.NO_POSITION) {
+                        listener.onItemClick(position);
                     }
                 }
             });
 
-            chat.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    if (listener != null) {
-                        int position = getAdapterPosition();
-                        if (position != RecyclerView.NO_POSITION) {
-                            listener.onRequestClick(position);
-                        }
+            chat.setOnClickListener(view -> {
+                if (listener != null) {
+                    int position = getAdapterPosition();
+                    if (position != RecyclerView.NO_POSITION) {
+                        listener.onRequestClick(position);
                     }
                 }
             });

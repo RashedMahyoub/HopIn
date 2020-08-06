@@ -24,17 +24,9 @@ public class MessageDialog {
         MaterialTextView name = dialog.findViewById(R.id.name);
         View close = dialog.findViewById(R.id.close_window);
 
-
         message.setText(msg);
         name.setText(mName);
-
-        close.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                dialog.dismiss();
-            }
-        });
-
+        close.setOnClickListener(view -> dialog.dismiss());
         dialog.show();
     }
 }

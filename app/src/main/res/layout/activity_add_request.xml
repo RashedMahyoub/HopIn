@@ -4,128 +4,183 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
     tools:context=".view.ui.AddRequestActivity">
 
-    <View
-        android:id="@+id/view"
+    <RelativeLayout
+        android:id="@+id/appbarLayout"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:background="@drawable/background_edge_yellow"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="52dp"
-        android:fontFamily="@font/sniglet"
-        android:text="@string/find_a_partner"
-        android:textColor="@color/design_default_color_on_secondary"
-        android:textSize="34sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/input_names"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="100dp"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="100dp"
-        app:boxStrokeColor="@color/appBar"
-        app:endIconMode="clear_text"
-        app:hintTextColor="#FFCC22"
+        android:layout_height="0dp"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/colorful_background"
+        app:layout_constraintBottom_toTopOf="@+id/guideline"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/name_view">
+        app:layout_constraintTop_toTopOf="parent">
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/input_name"
-            android:layout_width="220dp"
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:autofillHints="name"
-            android:hint="@string/name"
-            android:inputType="textPersonName"
-            android:textColorHint="@color/appBar"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/name_view" />
+            android:layout_marginTop="24dp"
+            android:elevation="0dp">
 
-    </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/find_a_partner"
+                android:textAppearance="@style/textStyle"
+                android:textColor="@color/design_default_color_on_primary"
+                android:textSize="25sp" />
+        </com.google.android.material.appbar.MaterialToolbar>
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/message_text_input"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+    </RelativeLayout>
+
+    <ProgressBar
+        android:id="@+id/request_progress"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        app:boxStrokeColor="@color/appBar"
-        app:endIconMode="clear_text"
-        app:hintTextColor="#FFCC22"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/message_view">
+        app:layout_constraintTop_toTopOf="@+id/guideline4" />
+
+
+    <RelativeLayout
+        android:id="@+id/textLayout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_margin="2dp"
+        android:background="@drawable/white_background"
+        android:backgroundTint="@color/design_default_color_on_primary"
+        android:clipToPadding="false"
+        android:elevation="3dp"
+        android:padding="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline4"
+        app:layout_constraintEnd_toStartOf="@+id/guideline3"
+        app:layout_constraintStart_toStartOf="@+id/guideline2"
+        app:layout_constraintTop_toTopOf="@+id/guideline1">
+
+        <TextView
+            android:id="@+id/message_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:fontFamily="@font/sniglet"
+            android:text="@string/message"
+            android:textColor="@color/design_default_color_on_secondary"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/message_edit_text"
-            android:layout_width="300dp"
-            android:layout_height="150dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/message_view"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
             android:autofillHints="@string/message"
+            android:gravity="center_horizontal"
             android:hint="@string/label_name"
-            android:textColorHint="#FFCC22" />
-    </com.google.android.material.textfield.TextInputLayout>
+            android:inputType="textMultiLine"
+            android:padding="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
-    <TextView
-        android:id="@+id/name_view"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="64dp"
-        android:fontFamily="@font/sniglet"
-        android:text="@string/name"
-        android:textColor="#000000"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3" />
-
-    <TextView
-        android:id="@+id/message_view"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="14dp"
-        android:fontFamily="@font/sniglet"
-        android:text="@string/message"
-        android:textColor="#000000"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/input_names" />
+    </RelativeLayout>
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/button"
-        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-        android:layout_width="149dp"
+        android:id="@+id/location"
+        style="@style/Widget.MaterialComponents.Button"
+        android:layout_width="0dp"
         android:layout_height="60dp"
-        android:layout_marginTop="36dp"
+        android:layout_alignParentTop="true"
+        android:backgroundTint="@android:color/white"
+        android:text="@string/press_to_choose_the_city"
+        android:textAllCaps="false"
+        android:textColor="@color/design_default_color_on_secondary"
+        app:cornerRadius="10dp"
+        app:elevation="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline1"
+        app:layout_constraintEnd_toStartOf="@+id/guideline3"
+        app:layout_constraintStart_toStartOf="@+id/guideline2"
+        app:layout_constraintTop_toTopOf="@+id/guide" />
+
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/confirm_request"
+        style="@style/Widget.MaterialComponents.Button"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:backgroundTint="@android:color/holo_blue_bright"
         android:text="@string/confirm"
         android:textColor="@color/design_default_color_on_secondary"
-        app:cornerRadius="2dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/message_text_input"
-        app:strokeColor="@color/appBar"
-        app:strokeWidth="2dp" />
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:background="@drawable/background_edge_yellow"
-        android:rotation="180"
+        app:cornerRadius="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintEnd_toStartOf="@+id/guideline3"
+        app:layout_constraintStart_toStartOf="@+id/guideline2"
+        app:layout_constraintTop_toTopOf="@+id/guideline4"
+        app:layout_constraintVertical_bias="0.3" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.25" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guide"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.15" />
+
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.35" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.8" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.05" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.95" />
+
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/adView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="bottom|center"
+        app:adSize="BANNER"
+        app:adUnitId="ca-app-pub-4472729188791792/6430266771"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
